@@ -1,0 +1,35 @@
+<h1 style="font-family: Impact; color: #0066CC; font-size: 40px">Check out these playlists.</h1>
+<div class="playlists">
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Date Created</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @playlists.each do |playlist| %>
+      <tr>
+        <td><%= image_tag playlist.image_url, size: "60x70", alt: "instruments" %></td>
+        <td><%= playlist.title.titlecase %></td>
+        <td><%= playlist.date %></td>
+        <td><%= strip_tags(playlist.description) %></td>
+        <td><%= link_to 'Show', playlist %></td>
+        <td><%= link_to 'Edit', edit_playlist_path(playlist) %></td>
+        <td><%= link_to 'Destroy', playlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Playlist', new_playlist_path %>
+<p><%= link_to 'See All Songs', songs_path %></p>
+</div>

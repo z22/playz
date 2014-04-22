@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Playlist.create!(title: 'Piano music',
+  date: '2.15.2014',
+  description:
+    %{<p>
+        Piano music sounds nice.
+      </p>},
+  image_url: 'pianoguys.jpg')

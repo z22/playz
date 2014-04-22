@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+
+<!-- <iframe width="300" height="150" src= <%= @embed_code %> frameborder="0" allowfullscreen></iframe> -->
+
+
+<%= @song.source.html_safe %>
+
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>

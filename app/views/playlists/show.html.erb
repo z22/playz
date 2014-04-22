@@ -1,0 +1,78 @@
+<!-- Display the playlist information -->
+<p id="notice"><%= notice %></p>
+
+
+
+  <h1>Playlist Title: <%= @playlist.title %></h1>
+
+<p>
+  <strong>Date Created:</strong>
+  <%= @playlist.date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= strip_tags(@playlist.description) %>
+</p>
+
+<p>
+  <%= image_tag @playlist.image_url, size: "60x70", alt: "instruments" %>
+</p>
+
+<!-- Display the songs in the playlist -->
+<br>
+
+<h2>The Songs:</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Date Added</th>
+      <th>Source</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+
+ <tbody>
+      <% @playlist.songs.each do |song| %>
+        <td><%= song.title %></td>
+        <td><%= song.artist %></td>
+        <td><%= song.date_added %></td>
+        <td><%= link_to 'Show', song %></td>
+      <% end %>
+</tbody>
+<br>
+
+
+
+<!-- Add a new song to the playlist -->
+<h2>Add a Song:</h2>
+<%= form_for([@playlist, @playlist.songs.build]) do |f| %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :artist %><br />
+    <%= f.text_area :artist %>
+  </p>
+    <p>
+    <%= f.label :date_added %><br />
+    <%= f.text_area :date_added %>
+  </p>
+    <p>
+    <%= f.label :source %><br />
+    <%= f.text_area :source %>
+  </p>
+  <%= f.hidden_field :playlist_id, value: @playlist.id %>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_playlist_path(@playlist) %> |
+<%= link_to 'Back', playlists_path %>

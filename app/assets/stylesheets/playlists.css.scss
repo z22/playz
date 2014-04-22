@@ -1,0 +1,29 @@
+// Place all the styles related to the playlists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.playlists {
+
+
+  table {
+    border-collapse: collapse;
+    background-color: #99CCFF;
+  }
+
+
+  tr td {
+    padding: 5px;
+    vertical-align: top;
+    color: #244;
+    font-weight: bold;
+    font-size: x-small;
+    font: Georgia, serif;
+  }
+
+  table th {
+    font:italic bold 12px/30px Georgia, serif;
+  }
+
+}
